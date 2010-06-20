@@ -1,0 +1,5 @@
+A Safari extenstion that adds a button to summon Simplenote's web interface.  
+
+It injects the iframe into the viewed page, so ther could be some weirdness.
+
+Tries to be helpful by providing the Title and URL of the page, along with any highlighted text in space saving rotated format.

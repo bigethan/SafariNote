@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>SafariNote</title>
+    </head>
+    <body>
+        <script tpe="text/javascript">
+            safari.application.addEventListener("command", runCommand, false);
+            function runCommand(event)
+            {
+                if (event.command == "BigethanSafariNote") {
+                    event.target.browserWindow.activeTab.page.dispatchMessage("BigethanSafariNote", '');
+                }
+            }
+        </script>
+    </body>
+</html>

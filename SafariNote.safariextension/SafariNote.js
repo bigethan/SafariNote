@@ -1,6 +1,6 @@
 function toggleSimpleFrame(msgEvent)
 {
-    var wrapEl, wrap, data, hr, dataTitle, dataUrl, dataText, iframe;
+    var wrapEl, wrap, data, hr, dataTitle, dataUrl, dataText, iframe, textSelection, textHolder;
     if (msgEvent.name == "BigethanSafariNote") {
         wrapEl = document.getElementById('bsn_wrap');
         if (!wrapEl) {
@@ -18,13 +18,10 @@ function toggleSimpleFrame(msgEvent)
             iframe = document.createElement('iframe');
             iframe.id = 'bsn_frame';
             iframe.src = 'https://simple-note.appspot.com/index.html';
-            hr = document.createElement('hr');
             
             //stick em all together
             data.appendChild(dataTitle);
-            data.appendChild(hr);
             data.appendChild(dataUrl);
-            data.appendChild(hr);
             data.appendChild(dataText);
             
             wrap.appendChild(data);
@@ -40,12 +37,16 @@ function toggleSimpleFrame(msgEvent)
             //url, page title, highlighted text
             document.getElementById('bsn_dataUrl').innerHTML = window.location;
             document.getElementById('bsn_dataTitle').innerHTML = document.title;
-            var textSelection = '';
+            textSelection = '';
             if (document.getSelection) {
-                textSelection = document.getSelection();
+                textSelection = String(document.getSelection());
             }
-            if (document.getSelection()) {
-                document.getElementById('bsn_dataText').innerHTML = String(textSelection);
+            textHolder = document.getElementById('bsn_dataText');
+            if (textSelection) {
+                textHolder.style.display = 'block';
+                textHolder.innerHTML = textSelection;
+            } else {
+                textHolder.style.display = 'none';
             }
             wrapEl.style.display = "block";
         } else {

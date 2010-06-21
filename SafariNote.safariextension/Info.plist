@@ -7,7 +7,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>SafariNote</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.bigethan.safariext.safarinote</string>
+	<string>com.bigethan.safari.safarinote</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
@@ -64,6 +64,8 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://github.com/bigethan/SafariNote/raw/master/updateCheck.plist</string>
 	<key>Website</key>
 	<string>http://github.com/bigethan/safarinote</string>
 </dict>

@@ -12,7 +12,7 @@
 #bsn_frame {
     position: absolute;
     top: 0px;
-    left: 250px;
+    left: 180px;
     width: 820px;
     height: 695px;
     display: block;
@@ -28,10 +28,10 @@
     font-size: 12px !important;
     position: absolute;
     top: 0px;
-    left: 250px;
+    left: 180px;
     border: 2px solid #ccc;
     background: #F1F1F1 !important;
-    margin: 0 0 0 10px;
+    margin: 0;
     padding: 10px !important;
     color: #000;
     border-color: #222 !important;
@@ -39,8 +39,13 @@
     border-bottom-left-radius: 8px;
     border-width: 0px !important;
     width: 650px;
-    height: 200px;
+    max-height: 130px;
     overflow: auto;
     -webkit-transform: rotate(90deg);
     -webkit-transform-origin: top left;
+}
+
+#bsn_data p {
+    margin: 0 0 3px 0 !important;
+    border-bottom: 1px dotted #ccc !important;
 }

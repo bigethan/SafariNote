@@ -5,10 +5,18 @@
     <body>
         <script tpe="text/javascript">
             safari.application.addEventListener("command", runCommand, false);
+            safari.application.addEventListener("validate", validate, false);
             function runCommand(event)
             {
+                
                 if (event.command == "BigethanSafariNote") {
                     event.target.browserWindow.activeTab.page.dispatchMessage("BigethanSafariNote", '');
+                }
+            }
+            function validate(event)
+            {
+                if (event.command == "BigethanSafariNote") {
+                    event.target.disabled = !event.target.browserWindow.activeTab.url;
                 }
             }
         </script>

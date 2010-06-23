@@ -1,7 +1,7 @@
 function toggleSimpleFrame(msgEvent)
 {
-    var wrapEl, wrap, data, hr, dataTitle, dataUrl, dataText, iframe, textSelection, textHolder;
-    if (msgEvent.name == "BigethanSafariNote") {
+    if (msgEvent.name == "BigethanSafariNote" && window == window.top) {
+        var wrapEl, wrap, data, hr, dataTitle, dataUrl, dataText, iframe, textSelection, textHolder;
         wrapEl = document.getElementById('bsn_wrap');
         if (!wrapEl) {
             //use dom methods, as using innerHTML causes selection to be lost
@@ -15,6 +15,9 @@ function toggleSimpleFrame(msgEvent)
             dataUrl.id = 'bsn_dataUrl';
             dataText = document.createElement('p');
             dataText.id = 'bsn_dataText';
+            closeText = document.createElement('p');
+            closeText.id = 'bsn_closeText';
+            closeText.innerText = 'Click Outside Box To Close';
             iframe = document.createElement('iframe');
             iframe.id = 'bsn_frame';
             iframe.src = 'https://simple-note.appspot.com/index.html';
@@ -24,13 +27,19 @@ function toggleSimpleFrame(msgEvent)
             data.appendChild(dataUrl);
             data.appendChild(dataText);
             
+            wrap.appendChild(closeText);
             wrap.appendChild(data);
             wrap.appendChild(iframe);
             
-            document.body.appendChild(wrap);
+                        
+            wrap.onclick = function() {
+                if (this.style.display == 'block') {
+                    this.style.display = 'none';
+                }
+            };
             wrapEl = wrap;
+            document.body.appendChild(wrapEl);
         }
-        
         //toggle it's visibility
         if(!wrapEl.style.display || wrapEl.style.display == 'none') {
             // add the note information to the data block
@@ -48,9 +57,10 @@ function toggleSimpleFrame(msgEvent)
             } else {
                 textHolder.style.display = 'none';
             }
-            wrapEl.style.display = "block";
+            wrapEl.style.display = 'block';
         } else {
-            wrapEl.style.display = "none";    
+            wrapEl.style.display = 'none';
+
         }
     }
 }

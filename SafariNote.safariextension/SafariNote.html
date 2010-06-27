@@ -16,7 +16,11 @@
             function validate(event)
             {
                 if (event.command == "BigethanSafariNote") {
+                    console.log(event.target.browserWindow.activeTab.url.substr(-3));
                     event.target.disabled = !event.target.browserWindow.activeTab.url;
+                    if (!event.target.disabled) {
+                        event.target.disabled = event.target.browserWindow.activeTab.url.substr(-3) == 'pdf' ? true : false;
+                    }
                 }
             }
         </script>

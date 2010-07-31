@@ -10,15 +10,15 @@
 }
 
 #bsn_frame {
-    position: absolute;
-    top: 0px;
-    left: 180px;
-    width: 820px;
+    /*position: absolute;
+    top: 10px;
+    left: 10px;*/
+    margin: 10px auto auto auto;
+    width: 850px;
     height: 695px;
     display: block;
     border-color: #222 !important;
     border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border-width: 0 !important;
     background-color: transparent !important;
